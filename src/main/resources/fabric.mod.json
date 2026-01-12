@@ -1,14 +1,14 @@
 {
 	"schemaVersion": 1,
-	"id": "examplemod",
+	"id": "retroifyer",
 	"version": "${version}",
-	"name": "Example Mod",
-	"description": "This mod aims to help new BTA modders.",
+	"name": "Tribute",
+	"description": "Uwa! So retro!",
 	"authors": [
-		"Turnip Labs"
+		"TheMidford","Useless"
 	],
 	"contact": {
-		"homepage": "",
+		"homepage": "https://www.github.com/TheMidford/BTA-Retroifyer",
 		"sources": ""
 	},
 	"icon": "icon.png",
@@ -16,20 +16,23 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"turniplabs.examplemod.ExampleMod"
+          "malicedev.retroifyer.Main"
 		],
 		"beforeGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+          "malicedev.retroifyer.Main"
 		],
 		"afterGameStart": [
-			"turniplabs.examplemod.ExampleMod"
+          "malicedev.retroifyer.Main"
 		],
 		"recipesReady": [
-			"turniplabs.examplemod.ExampleMod"
+          "malicedev.retroifyer.Main"
+		],
+		"initModels":[
+			"malicedev.retroifyer.ModModels"
 		]
 	},
 	"mixins": [
-		"examplemod.mixins.json"
+		"retroifyer.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=${fabricloader}",
