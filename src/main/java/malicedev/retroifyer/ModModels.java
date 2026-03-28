@@ -5,9 +5,12 @@ import net.minecraft.client.render.TileEntityRenderDispatcher;
 import net.minecraft.client.render.block.color.BlockColorDispatcher;
 import net.minecraft.client.render.block.model.*;
 import net.minecraft.client.render.item.model.ItemModelDispatcher;
+import net.minecraft.client.render.item.model.ItemModelStandard;
 import net.minecraft.core.util.helper.Side;
 import turniplabs.halplibe.helper.ModelHelper;
 import turniplabs.halplibe.util.ModelEntrypoint;
+
+import static turniplabs.halplibe.helper.ModelHelper.itemModelDispatcher;
 
 public class ModModels implements ModelEntrypoint {
 
@@ -91,6 +94,7 @@ public class ModModels implements ModelEntrypoint {
 
 	@Override
 	public void initItemModels(ItemModelDispatcher dispatcher) {
+		itemModelDispatcher.addDispatch(new ItemModelStandard(ModItems.HourglassRetro, null).setIcon("retroifyer:item/hourglass_retro"));
 	}
 
 	@Override

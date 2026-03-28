@@ -44,10 +44,12 @@ public class Main implements ModInitializer, RecipeEntrypoint, GameStartEntrypoi
 	@Override
 	public void beforeGameStart() {
 		ModBlocks.init();
+		ModItems.init();
 	}
 
 	@Override
 	public void afterGameStart() {
 		EntityHelper.createTileEntity(TileEntityRetroifyer.class, NamespaceID.getPermanent(MOD_ID,"retroifyer"));
+		TheTagIterator.init();
 	}
 }
