@@ -1,6 +1,5 @@
 package malicedev.retroifyer;
 
-import malicedev.retroifyer.BlockLogic.TileEntityRetroifyer;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.util.collection.NamespaceID;
 import org.slf4j.Logger;
@@ -14,7 +13,7 @@ import turniplabs.halplibe.util.RecipeEntrypoint;
 import java.util.Properties;
 
 public class Main implements ModInitializer, RecipeEntrypoint, GameStartEntrypoint {
-	public static final String MOD_ID = "retroifyer";
+	public static final String MOD_ID = "tribute";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 		public static int itemId;
 		public static int blockId;
@@ -31,8 +30,7 @@ public class Main implements ModInitializer, RecipeEntrypoint, GameStartEntrypoi
 		}
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Retroifyer initialized.");
-		NetworkHandler.registerNetworkMessage(RetroifyerNetworkMessage::new);
+		LOGGER.info("Tribute initialized.");
 		}
 
 	@Override
@@ -49,7 +47,6 @@ public class Main implements ModInitializer, RecipeEntrypoint, GameStartEntrypoi
 
 	@Override
 	public void afterGameStart() {
-		EntityHelper.createTileEntity(TileEntityRetroifyer.class, NamespaceID.getPermanent(MOD_ID,"retroifyer"));
 		TheTagIterator.init();
 	}
 }

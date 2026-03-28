@@ -1,23 +1,17 @@
 package malicedev.retroifyer;
 
 import malicedev.retroifyer.BlockLogic.BlockLogicCactusRetro;
-import malicedev.retroifyer.BlockLogic.BlockLogicRetroifyer;
 import malicedev.retroifyer.Tags.ModBlockTags;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
-import net.minecraft.core.item.Item;
-import net.minecraft.core.item.tag.ItemTags;
 import net.minecraft.core.sound.BlockSounds;
 import turniplabs.halplibe.helper.BlockBuilder;
-import turniplabs.halplibe.helper.ItemBuilder;
 
 import static malicedev.retroifyer.Main.blockId;
-import static malicedev.retroifyer.Main.itemId;
 
 public class ModBlocks {
 	private ModBlocks() {}
-	public static Block Retroifyer;
 	public static Block Diamond_BlockRetro;
 	public static Block Gold_BlockRetro;
 	public static Block Iron_BlockRetro;
@@ -37,11 +31,6 @@ public class ModBlocks {
 
 
 	public static void init() {
-		Retroifyer = new BlockBuilder(Main.MOD_ID)
-			.setBlockSound(BlockSounds.FIRE)
-			.setHardness(1.5f)
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.build("retroifyer","retroifyer", blockId++,(block) ->new BlockLogicRetroifyer(block, false));
 
 	Diamond_BlockRetro = new BlockBuilder(Main.MOD_ID)
 		.setBlockSound(BlockSounds.STONE)

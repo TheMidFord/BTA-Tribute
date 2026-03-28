@@ -1,11 +1,16 @@
 package malicedev.retroifyer;
 
+import malicedev.retroifyer.HourglassRetro.ProjectileHourglassRetro;
 import net.minecraft.client.render.EntityRenderDispatcher;
 import net.minecraft.client.render.TileEntityRenderDispatcher;
 import net.minecraft.client.render.block.color.BlockColorDispatcher;
 import net.minecraft.client.render.block.model.*;
+import net.minecraft.client.render.entity.EntityRendererDefault;
+import net.minecraft.client.render.entity.EntityRendererFireball;
+import net.minecraft.client.render.entity.EntityRendererSprite;
 import net.minecraft.client.render.item.model.ItemModelDispatcher;
 import net.minecraft.client.render.item.model.ItemModelStandard;
+import net.minecraft.core.entity.projectile.ProjectileSnowball;
 import net.minecraft.core.util.helper.Side;
 import turniplabs.halplibe.helper.ModelHelper;
 import turniplabs.halplibe.util.ModelEntrypoint;
@@ -16,14 +21,6 @@ public class ModModels implements ModelEntrypoint {
 
 	@Override
 	public void initBlockModels(BlockModelDispatcher dispatcher) {
-			dispatcher.addDispatch(new BlockModelRotatable<>(ModBlocks.Retroifyer)
-				.setTex(0, "minecraft:block/leaves/oak_retro", Side.NORTH)
-				.setTex(0, "minecraft:block/brick_clay_retro", Side.SOUTH)
-				.setTex(0, "retroifyer:block/retroifyer/retroifyer_side", Side.BOTTOM)
-				.setTex(0, "retroifyer:block/retroifyer/retroifyer_side", Side.EAST)
-				.setTex(0, "retroifyer:block/retroifyer/retroifyer_front", Side.TOP)
-				.setTex(0, "retroifyer:block/retroifyer/retroifyer_side", Side.WEST)
-			);
 		dispatcher.addDispatch(new BlockModelStandard<>(ModBlocks.Bricks_BlockRetro)
 			.setTex(0, "minecraft:block/brick_clay_retro", Side.sides)
 		);
@@ -99,12 +96,12 @@ public class ModModels implements ModelEntrypoint {
 
 	@Override
 	public void initEntityModels(EntityRenderDispatcher dispatcher) {
+		ModelHelper.setEntityModel(ProjectileHourglassRetro.class, () -> new EntityRendererSprite<>(ModItems.HourglassRetro));
 
 	}
 
 	@Override
 	public void initTileEntityModels(TileEntityRenderDispatcher dispatcher) {
-
 	}
 
 	@Override
