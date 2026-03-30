@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "retroifyer",
+	"id": "tribute",
 	"version": "${version}",
 	"name": "Tribute",
 	"description": "Uwa! So retro!",
@@ -8,7 +8,8 @@
 		"TheMidford","Useless"
 	],
 	"contact": {
-		"homepage": "https://www.github.com/TheMidford/BTA-Retroifyer",
+		"homepage": "https://www.github.com/TheMidford/",
+		"issues": "https://github.com/TheMidFord/BTA-Tribute/issues/new",
 		"sources": ""
 	},
 	"icon": "icon.png",
@@ -16,23 +17,23 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "malicedev.retroifyer.Main"
+          "malicedev.tribute.Main"
 		],
 		"beforeGameStart": [
-          "malicedev.retroifyer.Main"
+          "malicedev.tribute.Main"
 		],
 		"afterGameStart": [
-          "malicedev.retroifyer.Main"
+          "malicedev.tribute.Main"
 		],
 		"recipesReady": [
-          "malicedev.retroifyer.Main"
+          "malicedev.tribute.Main"
 		],
 		"initModels":[
-			"malicedev.retroifyer.ModModels"
+			"malicedev.tribute.ModModels"
 		]
 	},
 	"mixins": [
-		"retroifyer.mixins.json"
+		"tribute.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=${fabricloader}",
