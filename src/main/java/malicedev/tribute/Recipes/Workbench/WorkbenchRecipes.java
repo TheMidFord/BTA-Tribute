@@ -1,9 +1,8 @@
 package malicedev.tribute.Recipes.Workbench;
-
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import malicedev.tribute.ModBlocks;
 import malicedev.tribute.ModItems;
 import net.minecraft.core.block.Blocks;
+import net.minecraft.core.item.ItemBucket;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.Items;
 import net.minecraft.core.util.helper.DyeColor;
@@ -20,7 +19,7 @@ public class WorkbenchRecipes {
 			.addInput('G', Items.DUST_GLOWSTONE)
 			.addInput('R', Items.DUST_REDSTONE)
 			.addInput('J', Items.JAR)
-			.addInput('W', Items.BUCKET_WATER)
+			.addInput('W', ItemBucket.createRecipeInput(Items.BUCKET_IRON,ItemBucket.STATE_WATER))
 			.create("hourglassnormal", new ItemStack(ModItems.HourglassNormal, 8));
 
 		RecipeBuilder.Shaped(MOD_ID, "RBR", "GJG", "RWR")
@@ -28,7 +27,7 @@ public class WorkbenchRecipes {
 			.addInput('G', Items.DUST_GLOWSTONE)
 			.addInput('R', Items.DUST_REDSTONE)
 			.addInput('J', Items.JAR)
-			.addInput('W', Items.BUCKET_WATER)
+			.addInput('W', ItemBucket.createRecipeInput(Items.BUCKET_IRON,ItemBucket.STATE_WATER))
 			.create("hourglassretro", new ItemStack(ModItems.HourglassRetro, 8));
 
 		RecipeBuilder.Shaped(MOD_ID, "RBR", "GJG", "RWR")
@@ -36,7 +35,7 @@ public class WorkbenchRecipes {
 			.addInput('G', Items.DUST_GLOWSTONE)
 			.addInput('R', Items.DUST_REDSTONE)
 			.addInput('J', Items.JAR)
-			.addInput('W', Items.BUCKET_WATER)
+			.addInput('W', ItemBucket.createRecipeInput(Items.BUCKET_IRON,ItemBucket.STATE_WATER))
 			.create("hourglassancient", new ItemStack(ModItems.HourglassAncient, 8));
 
 		RecipeBuilder.Shaped(MOD_ID, "CC", "CC")
@@ -52,18 +51,18 @@ public class WorkbenchRecipes {
 			.create("stonecutter_moderncobble", new ItemStack(ModBlocks.StoneCutter, 1));
 
 		RecipeBuilder.Shapeless(MOD_ID)
-			.addInput(Items.BUCKET_WATER)
+			.addInput(ItemBucket.createRecipeInput(Items.BUCKET_IRON,ItemBucket.STATE_WATER))
 			.addInput(ModItems.HourglassAncient)
 			.create("classicwater", new ItemStack(ModBlocks.Water_Ancient, 4));
 
 		RecipeBuilder.Shapeless(MOD_ID)
-			.addInput(Items.BUCKET_LAVA)
+			.addInput(ItemBucket.createRecipeInput(Items.BUCKET_IRON,ItemBucket.STATE_LAVA))
 			.addInput(ModItems.HourglassAncient)
 			.create("classiclava", new ItemStack(ModBlocks.Lava_Ancient, 4));
 
 		RecipeBuilder.Shapeless(MOD_ID)
-			.addInput(Items.BUCKET_WATER)
-			.addInput(Items.BUCKET_WATER)
+			.addInput(ItemBucket.createRecipeInput(Items.BUCKET_IRON,ItemBucket.STATE_WATER))
+			.addInput(ItemBucket.createRecipeInput(Items.BUCKET_IRON,ItemBucket.STATE_WATER))
 			.addInput(Blocks.OBSIDIAN)
 			.addInput(Blocks.OBSIDIAN)
 			.create("cryingobsidian", new ItemStack(ModBlocks.Crying_Obsidian, 8));

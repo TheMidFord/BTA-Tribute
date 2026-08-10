@@ -28,9 +28,9 @@ public class ProjectileHourglassNormal  extends Projectile {
 	@Override
 	public void onHit(HitResult hitResult) {
 		super.onHit(hitResult);
-		int hitY = hitResult.y;
-		int hitX = hitResult.x;
-		int hitZ = hitResult.z;
+		int hitY = (int)hitResult.location.y();
+		int hitX = (int)hitResult.location.x();
+		int hitZ = (int)hitResult.location.z();
 		world.playSoundAtEntity(this, this, "random.glass", 0.5F, 1F);
 		int radius = 7;
 		for (int _y = hitY - radius; _y <= hitY + radius; _y++) {

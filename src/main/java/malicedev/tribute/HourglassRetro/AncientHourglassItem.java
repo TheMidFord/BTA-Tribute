@@ -7,6 +7,8 @@ import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.Direction;
 import net.minecraft.core.world.World;
+import net.minecraft.core.world.pos.TilePosc;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
 
@@ -16,7 +18,7 @@ public class AncientHourglassItem extends Item implements IDispensable {
 		this.maxStackSize = 64;
 	}
 
-	public ItemStack onUseItem(ItemStack itemstack, World world, Player entityplayer) {
+	public ItemStack onUse(ItemStack itemstack, World world, Player entityplayer) {
 		itemstack.consumeItem(entityplayer);
 		world.playSoundAtEntity(entityplayer, entityplayer, "random.bow", 0.1F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 		if (!world.isClientSide) {
@@ -26,16 +28,17 @@ public class AncientHourglassItem extends Item implements IDispensable {
 		return itemstack;
 	}
 
-	public void onUseByActivator(ItemStack itemStack, TileEntityActivator activatorBlock, World world, Random random, int blockX, int blockY, int blockZ, double offX, double offY, double offZ, Direction direction) {
-		ProjectileHourglassAncient projectileHourglassAncient = new ProjectileHourglassAncient(world, (double)blockX + offX, (double)blockY + offY, (double)blockZ + offZ);
-		projectileHourglassAncient.setHeading((double)direction.getOffsetX() * 0.6, direction.getOffsetY() == 0 ? 0.1 : (double)direction.getOffsetY() * 0.6, (double)((float)direction.getOffsetZ() * 0.6F), 1.1F, 6.0F);
+	public void onUseByActivator(ItemStack itemStack, TileEntityActivator activatorBlock, World world, Random random, TilePosc tilePosc, double offX, double offY, double offZ, Direction direction) {
+		ProjectileHourglassAncient projectileHourglassAncient = new ProjectileHourglassAncient(world, (double)tilePosc.x() + offX, (double)tilePosc.y() + offY, (double)tilePosc.z() + offZ);
+		projectileHourglassAncient.setHeading((double)direction.offsetX() * 0.6, direction.offsetY() == 0 ? 0.1 : (double)direction.offsetY() * 0.6, (double)((float)direction.offsetZ() * 0.6F), 1.1F, 6.0F);
 		world.entityJoinedWorld(projectileHourglassAncient);
 		--itemStack.stackSize;
 	}
 
-	public void onDispensed(ItemStack itemStack, World world, double x, double y, double z, int xOffset, int yOffset, int zOffset, Random random) {
+	@Override
+	public void onDispensed(@NotNull ItemStack selfStack, @NotNull World world, @NotNull Random random, @NotNull Direction direction, double x, double y, double z) {
 		ProjectileHourglassAncient entityhourglass = new ProjectileHourglassAncient(world, x, y, z);
-		entityhourglass.setHeading((double)xOffset, (double)yOffset + 0.1, (double)zOffset, 1.1F, 6.0F);
+		entityhourglass.setHeading((double)direction.offsetX(), (double)direction.offsetY() + 0.1, (double)direction.offsetZ(), 1.1F, 6.0F);
 		world.entityJoinedWorld(entityhourglass);
 	}
 }

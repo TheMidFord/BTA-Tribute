@@ -21,12 +21,17 @@ public class NetEntryHourglassAncient implements IVehicleEntry<ProjectileHourgla
 		return 64;
 	}
 
+	@Override
+	public int getMovementPacketDelay() {
+		return 0;
+	}
+
 	public int getPacketDelay() {
 		return 1;
 	}
 
 	public boolean sendMotionUpdates() {
-		return false;
+		return true;
 	}
 
 	public void onEntityTracked(EntityTracker tracker, EntityTrackerEntry trackerEntry, ProjectileHourglassAncient trackedObject) {

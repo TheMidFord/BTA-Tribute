@@ -19,18 +19,7 @@
 		"main": [
           "malicedev.tribute.Main"
 		],
-		"beforeGameStart": [
-          "malicedev.tribute.Main"
-		],
-		"afterGameStart": [
-          "malicedev.tribute.Main"
-		],
-		"recipesReady": [
-          "malicedev.tribute.Main"
-		],
-		"initModels":[
-			"malicedev.tribute.ModModels"
-		]
+		"client": ["malicedev.tribute.ModClient"]
 	},
 	"mixins": [
 		"tribute.mixins.json"

@@ -5,6 +5,8 @@ import malicedev.tribute.HourglassRetro.HourglassItem;
 import malicedev.tribute.HourglassRetro.NormalHourglassItem;
 import net.minecraft.core.item.Item;
 import turniplabs.halplibe.helper.ItemBuilder;
+import turniplabs.halplibe.helper.creativeInventory.CreativeInventoryCategory;
+import turniplabs.halplibe.helper.creativeInventory.CreativeInventoryPlacement;
 
 public class ModItems {
 	private ModItems(){}
@@ -14,10 +16,13 @@ public class ModItems {
 
 	public static void init() {
 		HourglassRetro = new ItemBuilder(Main.MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
 			.build(new HourglassItem("retro_hourglass", "tribute:item/hourglass_retro", Main.itemId++));
 		HourglassAncient = new ItemBuilder(Main.MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
 			.build(new AncientHourglassItem("ancient_hourglass", "tribute:item/hourglass_ancient", Main.itemId++));
 		HourglassNormal = new ItemBuilder(Main.MOD_ID)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
 			.build(new NormalHourglassItem("normal_hourglass", "tribute:item/hourglass_normal", Main.itemId++));
 	}
 

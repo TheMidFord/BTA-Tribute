@@ -6,6 +6,7 @@ import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.block.Blocks;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
+import net.minecraft.core.block.material.Materials;
 import net.minecraft.core.entity.Entity;
 import net.minecraft.core.entity.Mob;
 import net.minecraft.core.entity.player.Player;
@@ -17,13 +18,14 @@ import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.DamageType;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
+import net.minecraft.core.world.pos.TilePosc;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
 public class BlockLogicCactusRetro extends BlockLogic implements IBonemealable {
 	public BlockLogicCactusRetro(Block<?> block) {
-		super(block, Material.cactus);
+		super(block, Materials.CACTUS);
 		block.setTicking(true);
 		float f = 0.0625F;
 		this.setBlockBounds((double)f, (double)0.0F, (double)f, (double)(1.0F - f), (double)1.0F, (double)(1.0F - f));
@@ -107,10 +109,10 @@ public class BlockLogicCactusRetro extends BlockLogic implements IBonemealable {
 
 	}
 
-	public boolean onBonemealUsed(ItemStack itemstack, @Nullable Player player, World world, int blockX, int blockY, int blockZ, Side side, double xPlaced, double yPlaced) {
+	public boolean onBonemealUsed(ItemStack itemstack, @Nullable Player player, World world, TilePosc tilePosc, Side side, double xPlaced, double yPlaced) {
 		if (!world.isClientSide) {
-			this.growCactusOnTop(world, blockX, blockY, blockZ);
-			if (player == null || player.getGamemode().consumeBlocks()) {
+			this.growCactusOnTop(world, tilePosc.x(), tilePosc.y(), tilePosc.z());
+			if (player == null || player.getGamemode().hasBlockConsumption()) {
 				--itemstack.stackSize;
 			}
 		}

@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:block/cactus",
+  "textures": {
+    "top": "minecraft:block/cactus/top_retro",
+    "side": "minecraft:block/cactus/side_retro",
+    "down": "minecraft:block/cactus/bottom_retro",
+    "bottom":"minecraft:block/cactus/bottom_retro",
+    "north":"minecraft:block/cactus/side_retro",
+    "west":"minecraft:block/cactus/side_retro",
+    "east": "minecraft:block/cactus/side_retro",
+    "south":"minecraft:block/cactus/side_retro"
+  }
+}
